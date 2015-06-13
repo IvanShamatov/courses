@@ -5,6 +5,10 @@ class CoursesController < ApplicationController
     @courses = Course.all
   end
 
+  def schedule
+    @courses = Course.all
+  end
+  
   def show
   end
 

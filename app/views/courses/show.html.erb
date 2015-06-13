@@ -6,6 +6,42 @@
 </p>
 <span>Цена: <%= @course.price %></span>
 <hr>
+<h3>Группы:</h3>
+
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <th>Группа</th>
+    <th>Мест</th>
+    <th>Начало обучения</th>
+    <th>Окончание обучения</th>
+    <th>Дни</th>
+    <th>Начало</th>
+    <th>Конец</th>
+    <% @course.groups.each do |group| %>
+      <tr>
+        <td><%= group.id %></td>
+        <td><%= group.users.count %></td>
+        <td><%= group.start_date.strftime("%d/%m/%Y") %></td>
+        <td><%= group.end_date.strftime("%d/%m/%Y") %></td>
+        <td><%= group.weekday %></td>
+        <td><%= group.start_time.to_s(:time) %></td>
+        <td><%= group.end_time.to_s(:time) %></td>
+        <td><%= link_to 'Show', course_group_path(@course, group) %></td>
+        <td><%= link_to 'Edit', edit_course_group_path(@course, group) %></td>
+        <td><%= link_to 'Destroy', [@course, group], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<hr>
 <nav>
   <ul class="pagination">
     <li><%= link_to 'Back', courses_path %></li>

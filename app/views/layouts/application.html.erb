@@ -8,7 +8,14 @@
 </head>
 <body>
   <div class="container">
-    <%= yield %>
+    <ul class="nav nav-pills">
+      <li><%= link_to 'Главная', courses_path %></li>
+      <li><%= link_to 'Курсы', courses_path %></li>
+      <li><%= link_to 'Расписание', schedule_courses_path %></li>
+    </ul>
+    <div>
+      <%= yield %>
+    </div>
   </div>
 
 </body>

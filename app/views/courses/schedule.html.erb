@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Расписание курсов</h1>
+
+<% @courses.each do |course| %>
+  <h2><%= link_to course.title, course %></h2>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th colspan="2"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <th>Группа</th>
+      <th>Мест</th>
+      <th>Начало обучения</th>
+      <th>Окончание обучения</th>
+      <th>Дни</th>
+      <th>Начало</th>
+      <th>Конец</th>
+      <% course.groups.each do |group| %>
+        <tr>
+          <td><%= group.id %></td>
+          <td><%= group.freeslots %></td>
+          <td><%= group.start_date.strftime("%d/%m/%Y") %></td>
+          <td><%= group.end_date.strftime("%d/%m/%Y") %></td>
+          <td><%= group.weekday %></td>
+          <td><%= group.start_time.to_s(:time)  %></td>
+          <td><%= group.end_time.to_s(:time)  %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+<% end %>
+
+<nav>
+  <ul class="pagination">
+    <li><%= link_to 'New Course', new_course_path %></li>
+  </ul>
+</nav>
