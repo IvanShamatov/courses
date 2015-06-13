@@ -2,7 +2,7 @@
 
 <h1>Listing Groups</h1>
 
-<table>
+<table class="table table-hover">
   <thead>
     <tr>
       <th colspan="3"></th>
@@ -10,16 +10,24 @@
   </thead>
 
   <tbody>
-    <% @groups.each do |group| %>
+    <% @course.groups.each do |group| %>
       <tr>
-        <td><%= link_to 'Show', group %></td>
-        <td><%= link_to 'Edit', edit_group_path(group) %></td>
-        <td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= group.start_date %></td>
+        <td><%= group.end_date %></td>
+        <td><%= group.weekday %></td>
+        <td><%= group.start_time %></td>
+        <td><%= group.end_time %></td>
+        <td><%= link_to 'Show', course_group_path(@course, group) %></td>
+        <td><%= link_to 'Edit', edit_course_group_path(@course, group) %></td>
+        <td><%= link_to 'Destroy', [@course, group], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
+<hr>
+<%= link_to 'Back', course_path(@course) %>
+<%= link_to 'New Group', new_course_group_path(@course, @group) %>
 
-<%= link_to 'New Group', new_group_path %>
+

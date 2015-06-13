@@ -1,4 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_course_path(@course) %> |
+<h2><%= @course.title %></h2>
+<p>
+  <%= @course.description %>
+</p>
+<span>Цена: <%= @course.price %></span>
+<hr>
+
+<%= link_to 'Add Group', new_course_group_path(@course) %>
+<%= link_to 'Show Groups', course_groups_path(@course) %>
+<hr>
+<%= link_to 'Edit', edit_course_path(@course) %>
 <%= link_to 'Back', courses_path %>
