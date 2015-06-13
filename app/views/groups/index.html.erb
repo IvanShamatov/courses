@@ -27,7 +27,11 @@
 
 <br>
 <hr>
-<%= link_to 'Back', course_path(@course) %>
-<%= link_to 'New Group', new_course_group_path(@course, @group) %>
+<nav>
+  <ul class="pagination">
+    <li><%= link_to 'Back', course_path(@course) %></li>
+  </ul>
+</nav>
+
 
 

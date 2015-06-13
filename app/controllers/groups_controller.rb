@@ -26,7 +26,7 @@ class GroupsController < ApplicationController
   end
 
   def update
-    @course.groups.update_attributes(group_params)
+    @group.update_attributes(group_params)
     if @course.errors.empty?
       redirect_to course_groups_path
     else

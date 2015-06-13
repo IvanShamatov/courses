@@ -6,9 +6,11 @@
 </p>
 <span>Цена: <%= @course.price %></span>
 <hr>
-
-<%= link_to 'Add Group', new_course_group_path(@course) %>
-<%= link_to 'Show Groups', course_groups_path(@course) %>
-<hr>
-<%= link_to 'Edit', edit_course_path(@course) %>
-<%= link_to 'Back', courses_path %>
+<nav>
+  <ul class="pagination">
+    <li><%= link_to 'Back', courses_path %></li>
+    <li><%= link_to 'Edit', edit_course_path(@course) %></li>
+    <li><%= link_to 'Show Groups', course_groups_path(@course) %></li>
+    <li><%= link_to 'Add Group', new_course_group_path(@course) %></li>
+  </ul>
+</nav>
