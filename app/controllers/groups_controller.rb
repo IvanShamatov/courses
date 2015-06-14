@@ -1,25 +1,27 @@
 class GroupsController < ApplicationController
-  before_action :set_course
+  
   before_action :set_group, only: [:show, :edit, :update, :destroy]
 
   def index
-    @groups = @course.groups.all
+    @groups = Group.all
   end
 
   def show
   end
 
   def new
-    @group = @course.groups.new
+    @course = Course.find(params[:course_id])
+    @group = @course.groups.build
   end
 
   def edit
   end
 
   def create
-    @group = @course.groups.create(group_params)
+    @course = Course.find(params[:course_id])
+    @group = @course.groups.build(group_params)
     if @group.errors.empty?
-      redirect_to course_groups_path
+      redirect_to @course
     else
       render 'new'
     end
@@ -28,7 +30,7 @@ class GroupsController < ApplicationController
   def update
     @group.update_attributes(group_params)
     if @course.errors.empty?
-      redirect_to course_groups_path
+      redirect_to @course
     else
       render 'edit'
     end
@@ -40,11 +42,7 @@ class GroupsController < ApplicationController
   end
 
   private
-    
-    def set_course
-      @course = Course.find(params[:course_id])
-    end
-
+  
     def set_group
       @group = Group.find(params[:id])
     end

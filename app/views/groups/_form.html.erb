@@ -1,4 +1,4 @@
-<%= simple_form_for ([@course, @group]) do |f| %>
+<%= simple_form_for @group, url: course_groups_path(@course) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">

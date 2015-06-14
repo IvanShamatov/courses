@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :courses do
+  resources :courses, shallow: true do
     resources :groups
     get :schedule, on: :collection
   end
