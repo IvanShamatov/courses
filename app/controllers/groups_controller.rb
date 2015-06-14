@@ -20,6 +20,7 @@ class GroupsController < ApplicationController
   def create
     @course = Course.find(params[:course_id])
     @group = @course.groups.build(group_params)
+    @group.save
     if @group.errors.empty?
       redirect_to @course
     else
