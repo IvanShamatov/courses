@@ -27,7 +27,7 @@
     <% @course.groups.each do |group| %>
       <tr>
         <td><%= group.id %></td>
-        <td><%= group.users.count %></td>
+        <td><%= group.freeslots %></td>
         <td><%= group.start_date.strftime("%d/%m/%Y") %></td>
         <td><%= group.end_date.strftime("%d/%m/%Y") %></td>
         <td><%= group.weekday %></td>
